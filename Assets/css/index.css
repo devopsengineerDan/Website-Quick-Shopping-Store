@@ -403,21 +403,32 @@ hr{
     display:grid;
     grid-template-columns:4fr 1fr;
     width:940px;
-    border:1px solid red;
+    align-content:space-around;
+    padding:20px;
 }    
 
 .comment-section{
+    height:200px;
     background-color:#fff;
-    height:240px;
     width:940px;
     display:grid;
     align-content:space-between;
+}
+
+.comment-section ul li{
+    list-style:none;
 }
 
 .comment-section h1{
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
     background-color: #1b4332;
     color:#fff;
+}
+
+.list{
+    border:1px solid #c4c4c4;
+    padding:10px 0px;
+    margin-left:40px;
 }
 
 .comment{
