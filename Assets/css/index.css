@@ -279,3 +279,97 @@ hr{
     font-size:20px;
     font-weight:600;
 }    
+
+.add-to-cart{
+    width:100px;
+    height:50px;
+}
+
+.cart-container button{
+    color:#1b4332;
+    background-color:white;
+    border:1px solid #1b4332;
+}
+
+.cart-container button:hover{
+    color:white;
+    background-color: #1b4332;
+    border:1px solid white;
+    transition:.3s ease-in-out;
+}
+
+.user-container button{
+    color:#1b4332;
+    width:40px;
+    background-color:white;
+    border:none;
+}
+
+.user-container button:hover{
+    color:white;
+    background-color: #1b4332;
+    border:1px solid white;
+    transition:.3s ease-in-out;
+}
+
+.user-container ul li{
+    color:white;
+    list-style:none;
+}
+
+.grid-list h2{
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    font-family:'Poppins';
+    background-color:#1b4332;
+    padding:7px 0px;
+    color:#fff;
+}
+
+.select-value{
+    height:30px;
+    outline:none;
+    font-family:'Poppins';
+    width:200px;
+}
+
+
+.quantity-container{
+    display:flex;
+    font-family:'Poppins';
+}
+
+.quantity-container h2{
+    font-weight:300;
+}
+
+.like-comment-container{
+    display:flex;
+    justify-content:space-around;
+}
+
+.like-button{
+    height:60px;
+    width:40px;
+    color:red;
+    background-color:transparent;
+    border:1px solid #c4c4c4;
+    font-size:50px;
+}
+
+.comment-section h1{
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    
+}
+
+.input-name{
+    height:30px;
+}
+
+.input-comment{
+    height:30px;
+}
+
+.input-submit{
+    height:30px;
+    width:100px;
+}
