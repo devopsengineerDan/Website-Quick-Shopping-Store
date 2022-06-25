@@ -1,0 +1,138 @@
+*{
+    padding:0;
+    margin:0;
+}
+
+body{
+    background-color:#ced4da;
+}
+
+.navigation-container{
+    background-color:#1b4332;
+    width:100vw;
+    display:grid;
+    grid-template-columns:1fr 2fr 1fr 1fr;
+    font-family:'Actor',sans-serif;
+    height:60px;
+    box-shadow:rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    position:fixed;
+    top:0;
+    z-index:100;
+}
+
+.logo-container{
+    font-size:26px;
+    padding:10px 0px 10px 10px;
+    color:#fff;
+    font-weight:900px;
+}
+
+
+.nav-container ul{
+    display:flex;
+    justify-content:space-around;
+    margin-top:20px;
+}
+
+.nav-container ul li{
+    list-style:none;
+    padding:0px 0px;
+}
+
+.nav-container ul li:hover{
+    border-bottom:1px solid white;
+}
+
+.nav-container ul li a{
+    color:white;
+    text-decoration:none;
+
+}
+
+.cart-container{
+    display:flex;
+    align-items:flex-start;
+}
+
+.cart-container > button{
+    padding:10px;
+    margin:20px;
+    height:35px;
+}
+
+.user-container{
+    display:flex;
+    padding:10px;
+    justify-content:space-around;
+}
+
+.user-container > button{
+    height:40px;
+}
+
+.user-container > ul{
+    display:grid;
+}
+
+.slide-container{
+    margin-top:100px;
+}
+
+.gallery-show{
+    display:flex;
+    box-shadow:rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    height:400px;
+    width:800px;
+    margin:30px;
+    justify-content:space-between;
+    align-items:center;
+    background-color:#fff;
+}
+
+.gallery-text{
+    display:grid;
+    justify-content:space-around;
+    align-content:space-around;
+    height:300px;
+    width:600px;
+    font-family:'Poppins',sans-serif;
+}
+
+.gallery-text h1{
+    font-size:42px;
+    color:#1b4332;
+}
+
+.gallery-text h3{
+    font-weight:500;
+    color:#1b4332;
+}
+
+.see-more{
+    width:120px;
+    height:40px;
+    background-color:#1b4332;
+    border:none;
+    color:white;
+}
+
+.see-more:hover{
+    color:#1b4332;
+    background-color:transparent;
+    border:1px solid #1b4332;
+    transition:.3s ease-in-out;
+}
+
+.left-button, .right-button{
+    height:40px;
+    width:60px;
+    color:#1b4332;
+    background-color:transparent;
+    border:none;
+    border-radius:8px;
+}    
+
+.gallery-image{
+    width:400px;
+    font-size:28px;
+}
