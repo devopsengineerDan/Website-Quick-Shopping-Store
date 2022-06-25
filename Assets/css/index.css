@@ -145,16 +145,29 @@ body{
 
 .discount-card{
     background-color: #fff;
-    height:250px;
-    margin:20px;
+    height:300px;
+    width:300px;
+    display:grid;
+    justify-content:center;
+    align-content:space-around;
+    margin:10px;
+    font-family:'Poppins',sans-serif;
 }
 
 .discount-card img{
-    width:300px;
+    width:250px;
 }
 
 .discount-card h3{
-    
+    color:#1b4332;
+    font-size:28px;
+}
+
+.discount-card h4{
+    color:#6f6f6f;
+    font-size:22px;
+    padding:0px 2px;
+    font-weight:200;
 }
 
 .home-container{
@@ -162,7 +175,7 @@ body{
     justify-content:space-between;
     grid-template-columns:6fr 2fr;
     /* background-color:#fff; */
-    margin-top:100px;
+    margin-top:30px;
 }
 
 .home-display-container{

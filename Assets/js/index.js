@@ -101,3 +101,27 @@ const slideshow = (info)=>{
 }
 
 slideshowData();
+
+const likeHandler = ()=>{
+    let i = 0;
+    like.addEventListener('click',(event)=>{
+        if(like.textContent === '♡'){
+            likeCount.textContent = `${i++} likes`
+            like.textContent = '♥';
+        }
+        else{
+            like.textContent = '♡'
+        }
+    })
+}
+
+likeHandler();
+
+const cartHandler = (element)=>{
+    cartButton.addEventListener('click',(event)=>{
+        console.log('click');
+        const cartItem = document.createElement('div');
+        cartItem.innerHTML = `<image src="${element.image}" width="300"><h3>"${element.title}"</h3><h3>"${element.price}"</h3><button class="cart-element">remove</button>`;
+        cartList.appendChild(cartItem);
+    })
+}
