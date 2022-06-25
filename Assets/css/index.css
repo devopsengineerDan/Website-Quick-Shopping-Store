@@ -76,6 +76,7 @@ body{
 
 .slide-container{
     margin-top:100px;
+    display:flex;
 }
 
 .gallery-show{
@@ -137,6 +138,25 @@ body{
     font-size:28px;
 }
 
+.discount-container{
+    display:grid;
+    align-content:space-around;
+}
+
+.discount-card{
+    background-color: #fff;
+    height:250px;
+    margin:20px;
+}
+
+.discount-card img{
+    width:300px;
+}
+
+.discount-card h3{
+    
+}
+
 .home-container{
     display:grid;
     justify-content:space-between;
@@ -183,7 +203,7 @@ body{
     justify-content:space-around;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
     background-color:#fff;
-    height:500px;
+    height:auto;
     font-family:'Actor', sans-serif;
 }
 

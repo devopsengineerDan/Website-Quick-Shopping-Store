@@ -54,3 +54,50 @@ const showProducts = (info)=>{
         itemDisplay.appendChild(div);
     })
 }
+
+const commentBar = ()=>{
+    form.addEventListener('submit',(event)=>{
+        event.preventDefault();
+        const List = document.querySelector('.list');
+        const ListItem = document.createElement('li');
+         ListItem.textContent = inputComment.value;
+        List.appendChild(ListItem);
+    })
+}
+
+commentBar();
+
+const slideshowData = ()=>{
+    fetch('http://localhost:3000/images')
+    .then((response)=>response.json())
+    .then((data)=>slideshow(data))
+}
+
+const slideshow = (info)=>{
+    let i = 0;
+        galleryImage.setAttribute('src',`${info[0].image}`);
+        title.textContent = `${info[0].title}`
+        subtitle.textContent = `${info[0].subtitle}`;
+        left.addEventListener('click',(event)=>{
+            console.log(i);
+            if(i<1){
+                i = 3;
+            }
+            i--;
+            galleryImage.setAttribute('src',`${info[i].image}`);
+            title.textContent = `${info[i].title}`
+            subtitle.textContent = `${info[i].subtitle}`;
+        });
+        right.addEventListener('click',(event)=>{
+            console.log(i);
+            if(i>1){
+                i = -1;
+            }
+            i++
+            galleryImage.setAttribute('src',`${info[i].image}`);
+            title.textContent = `${info[i].title}`
+            subtitle.textContent = `${info[i].subtitle}`;
+        })
+}
+
+slideshowData();
