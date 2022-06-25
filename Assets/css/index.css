@@ -228,13 +228,6 @@ hr{
     align-content:space-around;
 }    
 
-.about-section-container{
-    display:grid;
-    grid-template-columns:4fr 1fr;
-    height:250px;
-    width:940px;
-    border:1px solid red;
-}    
 
 .shopping-container{
     display:flex;
@@ -283,7 +276,16 @@ hr{
 .add-to-cart{
     height:50px;
     background-color:transparent;
-    border:none;
+    border:1px solid white;
+    padding:5px 10px;
+    background-color: #1b4332;
+    color:#fff;
+}
+
+.add-to-cart:hover{
+    color:#1b4332;
+    background-color: #fff;
+    border:1px solid #1b4332;
 }
 
 .cart-container button{
@@ -326,6 +328,11 @@ hr{
     color:#fff;
 }
 
+.grid-list h4{
+    color: #1b4332;
+    font-size:24px;
+}
+
 .select-value{
     height:30px;
     outline:none;
@@ -355,13 +362,34 @@ hr{
     width:40px;
     color:red;
     background-color:transparent;
-    border:1px solid #c4c4c4;
+    border:none;
     font-size:50px;
+}
+
+.about-section-container{
+    display:grid;
+    grid-template-columns:4fr 1fr;
+    width:940px;
+    border:1px solid red;
+}    
+
+.comment-section{
+    background-color:#fff;
+    height:240px;
+    width:940px;
+    display:grid;
+    align-content:space-between;
 }
 
 .comment-section h1{
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-    
+    background-color: #1b4332;
+    color:#fff;
+}
+
+.comment{
+    margin-bottom:20px;
+    margin-left:20px;
 }
 
 .input-name{
@@ -370,9 +398,18 @@ hr{
 
 .input-comment{
     height:30px;
+    outline:none;
 }
 
 .input-submit{
     height:30px;
     width:100px;
+    background-color: transparent;
+    color:#1b4332;
+    border:1px solid #1b4332;
+}
+
+.input-submit:hover{
+    color:#fff;
+    background-color:#1b4332;
 }
