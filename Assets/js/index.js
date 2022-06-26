@@ -58,7 +58,7 @@ const showProducts = (info)=>{
 }
 
 const commentBar = ()=>{
-    fetch("http://localhost:3000/comments")
+    fetch("https://github.com/anthonykimani/Quick-Shopping-Store/blob/master/Assets/json/db.json/comments")
     .then((response)=>response.json())
     .then((data)=>{
         data.forEach((element)=>{
@@ -91,7 +91,7 @@ const removeComment = (ListItem,id)=>{
 }
 
 const postComment = (ListItem)=>{
-    fetch("http://localhost:3000/comments",{
+    fetch("https://github.com/anthonykimani/Quick-Shopping-Store/blob/master/Assets/json/db.json/comments",{
         method:"POST",
         headers:{
             "Content-Type":"application/json"
@@ -105,7 +105,7 @@ const postComment = (ListItem)=>{
 commentBar();
 
 const slideshowData = ()=>{
-    fetch('http://localhost:3000/images')
+    fetch('https://github.com/anthonykimani/Quick-Shopping-Store/blob/master/Assets/json/db.json/images')
     .then((response)=>response.json())
     .then((data)=>slideshow(data))
 }
