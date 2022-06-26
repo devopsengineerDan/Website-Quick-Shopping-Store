@@ -58,7 +58,7 @@ const showProducts = (info)=>{
 }
 
 const commentBar = ()=>{
-    fetch("https://github.com/anthonykimani/Quick-Shopping-Store/blob/master/Assets/json/db.json/comments")
+    fetch("https://raw.githubusercontent.com/anthonykimani/Quick-Shopping-Store/master/Assets/json/db.json/comments")
     .then((response)=>response.json())
     .then((data)=>{
         data.forEach((element)=>{
@@ -84,14 +84,14 @@ const commentBar = ()=>{
 const removeComment = (ListItem,id)=>{
     ListItem.addEventListener('click',(event)=>{
         ListItem.remove();
-        fetch(`http://localhost:3000/comments/${id}`,{
+        fetch(`https://raw.githubusercontent.com/anthonykimani/Quick-Shopping-Store/master/Assets/json/db.json/comments/${id}`,{
             method:"DELETE"
         })
     })
 }
 
 const postComment = (ListItem)=>{
-    fetch("https://github.com/anthonykimani/Quick-Shopping-Store/blob/master/Assets/json/db.json/comments",{
+    fetch("https://raw.githubusercontent.com/anthonykimani/Quick-Shopping-Store/master/Assets/json/db.json/comments",{
         method:"POST",
         headers:{
             "Content-Type":"application/json"
@@ -105,7 +105,7 @@ const postComment = (ListItem)=>{
 commentBar();
 
 const slideshowData = ()=>{
-    fetch('https://github.com/anthonykimani/Quick-Shopping-Store/blob/master/Assets/json/db.json/images')
+    fetch('https://raw.githubusercontent.com/anthonykimani/Quick-Shopping-Store/master/Assets/json/db.json/images')
     .then((response)=>response.json())
     .then((data)=>slideshow(data))
 }
