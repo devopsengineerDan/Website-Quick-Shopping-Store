@@ -7,6 +7,9 @@ body{
     background-color:#ced4da;
 }
 
+.container{
+}
+
 .navigation-container{
     background-color:#1b4332;
     width:100vw;
@@ -93,12 +96,15 @@ body{
     width:60%;
 }
 
+.gallery-slide{
+    display:flex;
+}
 .gallery-text{
     display:grid;
     justify-content:space-around;
     align-content:space-around;
     height:300px;
-    width:600px;
+    width:auto;
     font-family:'Poppins',sans-serif;
 }
 
@@ -203,13 +209,13 @@ body{
     background-color:#1b4332;
     color:#fff;
     font-family:'Poppins';
-    height:50px;
+    height:auto;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
 
 .image-container{
     display:flex;
-    justify-content:space-between;
+    justify-content:space-around;
     background-color: #fff;
 }
 
@@ -245,7 +251,7 @@ hr{
 .description p{
     font-family:'Poppins';
     font-weight:300;
-    font-size:18px;
+    font-size:14px;
 }
 
 .price-container{
@@ -523,7 +529,7 @@ hr{
         height:auto;
         display:grid;
         background-color:white;
-        max-width:600px;
+        max-width:800px;
         align-content:center;
         justify-content:center;
     }
@@ -593,6 +599,13 @@ hr{
 }
 
 @media(max-width:525px){
+    .gallery-show{
+        height:auto;
+    }
+
+    .gallery-slide{
+        display:grid;
+    }
     .image-container img{
         max-width:300px;
         width:100%;

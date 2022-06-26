@@ -19,9 +19,10 @@ const like = document.querySelector('.like-button');
 const likeCount = document.querySelector('.like-count');
 const cartList = document.querySelector('.cart-list');
 const List = document.querySelector('.list');
+const url = 'https://fakestoreapi.com/products';
 
 const fetchProducts = ()=>{
-    fetch('https://fakestoreapi.com/products',{
+    fetch(url,{
         method:'GET',
         headers:{
             'Access-Control-Allow-Origin': 'https://fakestoreapi.com/products'
@@ -49,7 +50,6 @@ const showProducts = (info)=>{
             displayHeading.textContent = `${element.title}`;
             displayParagraph.textContent = `${element.description}`;
             displayPrice.textContent = `$ ${element.price}`;
-            cartHandler(info,index);
             
         })
         div.appendChild(img);
@@ -85,7 +85,13 @@ const removeComment = (ListItem,id)=>{
     ListItem.addEventListener('click',(event)=>{
         ListItem.remove();
         fetch('https://raw.githubusercontent.com/anthonykimani/Quick-Shopping-Store/master/db.json',{
-            method:"DELETE"
+            method:"DELETE",
+            headers:{
+                'Content-Type':'application/json',
+            },
+            body:JSON.stringify({
+                
+            })
         })
     })
 }
@@ -154,11 +160,17 @@ const likeHandler = ()=>{
 
 likeHandler();
 
-const cartHandler = (element,index)=>{
+const cartHandler = ()=>{
     cartButton.addEventListener('click',(event)=>{
-        console.log('click');
-        const cartItem = document.createElement('div');
-        cartItem.innerHTML = `<image src="${element[index].image}" width="300"><h3>"${element[index].title}"</h3><h3>"${element[index].price}"</h3><button class="cart-element">remove</button>`;
-        cartList.appendChild(cartItem);
+        fetch(url)
+        .then((response)=>response.json())
+        .then((data)=>()=>{
+            console.log(event);
+            const cartItem = document.createElement('div');
+            cartItem.innerHTML = `<image src="${data.element.image}" width="300"><h3>"${data.element.title}"</h3><h3>"${data.element.price}"</h3><button class="cart-element">remove</button>`;
+            cartList.appendChild(cartItem);
+        })
     })
 }
+
+cartHandler();
