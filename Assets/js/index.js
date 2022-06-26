@@ -34,7 +34,7 @@ const fetchProducts = ()=>{
 fetchProducts();
 
 const showProducts = (info)=>{
-    info.images.forEach((element,index)=>{
+    info.forEach((element,index)=>{
         const div = document.createElement('div');
         const img = document.createElement('img');
         img.setAttribute('src',`${element.image}`);
@@ -112,18 +112,18 @@ const slideshowData = ()=>{
 
 const slideshow = (info)=>{
     let i = 0;
-        galleryImage.setAttribute('src',`${info.images.images[0].image}`);
-        title.textContent = `${info.images.images[0].title}`
-        subtitle.textContent = `${info.images.images[0].subtitle}`;
+        galleryImage.setAttribute('src',`${info.images[0].image}`);
+        title.textContent = `${info.images[0].title}`
+        subtitle.textContent = `${info.images[0].subtitle}`;
         left.addEventListener('click',(event)=>{
             console.log(i);
             if(i<1){
                 i = 3;
             }
             i--;
-            galleryImage.setAttribute('src',`${info.images.images[i].image}`);
-            title.textContent = `${info.images.images[i].title}`
-            subtitle.textContent = `${info.images.images[i].subtitle}`;
+            galleryImage.setAttribute('src',`${info.images[i].image}`);
+            title.textContent = `${info.images[i].title}`
+            subtitle.textContent = `${info.images[i].subtitle}`;
         });
         right.addEventListener('click',(event)=>{
             console.log(i);
@@ -131,9 +131,9 @@ const slideshow = (info)=>{
                 i = -1;
             }
             i++
-            galleryImage.setAttribute('src',`${info.images.images[i].image}`);
-            title.textContent = `${info.images.images[i].title}`
-            subtitle.textContent = `${info.images.images[i].subtitle}`;
+            galleryImage.setAttribute('src',`${info.images[i].image}`);
+            title.textContent = `${info.images[i].title}`
+            subtitle.textContent = `${info.images[i].subtitle}`;
         })
 }
 
