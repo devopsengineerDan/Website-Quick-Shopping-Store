@@ -1,7 +1,6 @@
 
 const cartContainer = document.querySelector('.shopping-container');
 const itemDisplay = document.querySelector('.list-container');
-const cartButton = document.querySelector('.add-to-cart');
 const displayImage = document.querySelector('.display-image');
 const displayHeading = document.querySelector('.display-heading');
 const displayParagraph = document.querySelector('.display-paragraph');
@@ -37,9 +36,12 @@ fetchProducts();
 const showProducts = (info)=>{
     info.forEach((element,index)=>{
         const div = document.createElement('div');
+        div.setAttribute('class','product-image-container')
         const img = document.createElement('img');
         img.setAttribute('src',`${element.image}`);
         img.setAttribute('class','product-image');
+        const icon = document.createElement('i');
+        icon.setAttribute('class','bx bx-cart-alt icon bx-sm');
         displayImage.setAttribute('src',`${element.image}`);
         displayHeading.textContent = `${element.title}`;
         displayParagraph.textContent = `${element.description}`;
@@ -50,9 +52,11 @@ const showProducts = (info)=>{
             displayHeading.textContent = `${element.title}`;
             displayParagraph.textContent = `${element.description}`;
             displayPrice.textContent = `$ ${element.price}`;
-            
+            setTimeout(function () {
+                window.scrollTo(0, 500);
+            },2);
         })
-        div.appendChild(img);
+        div.append(img,icon);
         itemDisplay.appendChild(div);
     })
 }
@@ -62,9 +66,6 @@ const commentBar = ()=>{
     .then((response)=>response.json())
     .then((data)=>{
         data.comments.forEach((element)=>{
-            // const ListItem = document.createElement('li');
-            // ListItem.textContent = `${element.comment}`;
-            // List.appendChild(ListItem);
             const listComments = document.createElement('li');
             listComments.textContent = `${element.comment}`;
             List.appendChild(listComments);
@@ -73,10 +74,15 @@ const commentBar = ()=>{
         form.addEventListener('submit',(event)=>{
             event.preventDefault();
             const ListItem = document.createElement('li');
+            const avatar = document.createElement('i');
+            const commentDiv = document.createElement('div');
+            commentDiv.setAttribute('class','comment-div');
+            avatar.setAttribute('class','bx bxs-user bx-sm');
             ListItem.textContent = inputComment.value;
-            List.appendChild(ListItem);
+            commentDiv.append(avatar,ListItem);
+            List.append(commentDiv);
             postComment(ListItem.textContent);
-            removeComment(ListItem);
+            removeComment(commentDiv);
         })
     })
 }
@@ -118,8 +124,8 @@ const slideshowData = ()=>{
 
 const slideshow = (info)=>{
     let i = 0;
-        galleryImage.setAttribute('src',`${info.images[0].image}`);
-        title.textContent = `${info.images[0].title}`
+    galleryImage.setAttribute('src',`${info.images[0].image}`);
+    title.textContent = `${info.images[0].title}`
         subtitle.textContent = `${info.images[0].subtitle}`;
         left.addEventListener('click',(event)=>{
             console.log(i);
@@ -161,15 +167,20 @@ const likeHandler = ()=>{
 likeHandler();
 
 const cartHandler = ()=>{
-    cartButton.addEventListener('click',(event)=>{
-        fetch(url)
-        .then((response)=>response.json())
-        .then((data)=>()=>{
-            console.log(event);
-            const cartItem = document.createElement('div');
-            cartItem.innerHTML = `<image src="${data.element.image}" width="300"><h3>"${data.element.title}"</h3><h3>"${data.element.price}"</h3><button class="cart-element">remove</button>`;
-            cartList.appendChild(cartItem);
-        })
+    const cartButton = document.querySelectorAll('.icon');
+    console.log(cartButton);
+    cartButton.forEach((button)=>{
+        button.addEventListener('click',(event)=>{
+            console.log('click');
+            // fetch(url)
+            // .then((response)=>response.json())
+            // .then((data)=>()=>{
+            //     console.log(event);
+            //     const cartItem = document.createElement('div');
+            //     cartItem.innerHTML = `<image src="${data.element.image}" width="300"><h3>"${data.element.title}"</h3><h3>"${data.element.price}"</h3><button class="cart-element">remove</button>`;
+            //     cartList.appendChild(cartItem);
+            // })
+        }) 
     })
 }
 
