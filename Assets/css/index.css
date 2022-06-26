@@ -530,6 +530,10 @@ hr{
     background-color:#1b4332;
 }
 
+.remove-item{
+    background-color:transparent;
+    padding:5px;
+}
 @media(max-width:1024px){
     .home-container{
         display:flex;

@@ -5,8 +5,6 @@ const displayImage = document.querySelector('.display-image');
 const displayHeading = document.querySelector('.display-heading');
 const displayParagraph = document.querySelector('.display-paragraph');
 const displayPrice = document.querySelector('.display-price');
-const addComments = document.querySelector('.comment');
-const inputName = document.querySelector('.input-name');
 const inputComment = document.querySelector('.input-comment');
 const form = document.querySelector('form');
 const left = document.querySelector('.left-button');
@@ -21,18 +19,20 @@ const List = document.querySelector('.list');
 const url = 'https://fakestoreapi.com/products';
 
 //FETCH THE PRODUCTS 
-const fetchProducts = ()=>{
-    fetch(url,{
-        method:'GET',
-        headers:{
-            'Access-Control-Allow-Origin': 'https://fakestoreapi.com/products'
-        }
-    })
-    .then((response)=>response.json())
-    .then((data)=>showProducts(data))
-    .catch((error)=>`error found:${error}`)
-}
-fetchProducts();
+document.addEventListener('DOMContentLoaded',(event)=>{
+    const fetchProducts = ()=>{
+        fetch(url,{
+            method:'GET',
+            headers:{
+                'Access-Control-Allow-Origin': 'https://fakestoreapi.com/products'
+            }
+        })
+        .then((response)=>response.json())
+        .then((data)=>showProducts(data))
+        .catch((error)=>`error found:${error}`)
+    }
+    fetchProducts();
+})
 
 //DISPLAYS THE PRODUCTS TO THE DOM
 const showProducts = (info)=>{
@@ -81,6 +81,7 @@ const commentBar = ()=>{
             const avatar = document.createElement('i');
             const commentDiv = document.createElement('div');
             const removeBtn = document.createElement('button');
+            removeBtn.setAttribute('class','remove-item');
             removeBtn.textContent = 'x';
             commentDiv.setAttribute('class','comment-div');
             avatar.setAttribute('class','bx bxs-user bx-sm');
@@ -88,6 +89,7 @@ const commentBar = ()=>{
             commentDiv.append(avatar,ListItem,removeBtn);
             List.append(commentDiv);
             postComment(ListItem.textContent);
+            inputComment.value = '';
             removeComment(commentDiv);
         })
     })
@@ -140,7 +142,6 @@ const slideshow = (info)=>{
     title.textContent = `${info.images[0].title}`
         subtitle.textContent = `${info.images[0].subtitle}`;
         left.addEventListener('click',(event)=>{
-            console.log(i);
             if(i<1){
                 i = 3;
             }
@@ -150,7 +151,6 @@ const slideshow = (info)=>{
             subtitle.textContent = `${info.images[i].subtitle}`;
         });
         right.addEventListener('click',(event)=>{
-            console.log(i);
             if(i>1){
                 i = -1;
             }
@@ -184,10 +184,8 @@ likeHandler();
 //ADDS AN ADD TO CART FUNCTIONALITY
 const cartHandler = ()=>{
     const cartButton = document.querySelectorAll('.icon');
-    console.log(cartButton);
     cartButton.forEach((button)=>{
         button.addEventListener('click',(event)=>{
-            console.log('click');
             // fetch(url)
             // .then((response)=>response.json())
             // .then((data)=>()=>{
