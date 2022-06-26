@@ -76,10 +76,12 @@ const commentBar = ()=>{
             const ListItem = document.createElement('li');
             const avatar = document.createElement('i');
             const commentDiv = document.createElement('div');
+            const removeBtn = document.createElement('button');
+            removeBtn.textContent = 'x';
             commentDiv.setAttribute('class','comment-div');
             avatar.setAttribute('class','bx bxs-user bx-sm');
             ListItem.textContent = inputComment.value;
-            commentDiv.append(avatar,ListItem);
+            commentDiv.append(avatar,ListItem,removeBtn);
             List.append(commentDiv);
             postComment(ListItem.textContent);
             removeComment(commentDiv);
