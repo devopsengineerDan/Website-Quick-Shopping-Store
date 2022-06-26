@@ -34,7 +34,7 @@ const fetchProducts = ()=>{
 fetchProducts();
 
 const showProducts = (info)=>{
-    info.forEach((element,index)=>{
+    info.images.forEach((element,index)=>{
         const div = document.createElement('div');
         const img = document.createElement('img');
         img.setAttribute('src',`${element.image}`);
@@ -58,10 +58,10 @@ const showProducts = (info)=>{
 }
 
 const commentBar = ()=>{
-    fetch("https://raw.githubusercontent.com/anthonykimani/Quick-Shopping-Store/master/Assets/json/db.json/comments")
+    fetch('https://raw.githubusercontent.com/anthonykimani/Quick-Shopping-Store/master/db.json')
     .then((response)=>response.json())
     .then((data)=>{
-        data.forEach((element)=>{
+        data.comments.forEach((element)=>{
             // const ListItem = document.createElement('li');
             // ListItem.textContent = `${element.comment}`;
             // List.appendChild(ListItem);
@@ -84,14 +84,14 @@ const commentBar = ()=>{
 const removeComment = (ListItem,id)=>{
     ListItem.addEventListener('click',(event)=>{
         ListItem.remove();
-        fetch(`https://raw.githubusercontent.com/anthonykimani/Quick-Shopping-Store/master/Assets/json/db.json/comments/${id}`,{
+        fetch('https://raw.githubusercontent.com/anthonykimani/Quick-Shopping-Store/master/db.json',{
             method:"DELETE"
         })
     })
 }
 
 const postComment = (ListItem)=>{
-    fetch("https://raw.githubusercontent.com/anthonykimani/Quick-Shopping-Store/master/Assets/json/db.json/comments",{
+    fetch('https://raw.githubusercontent.com/anthonykimani/Quick-Shopping-Store/master/db.json',{
         method:"POST",
         headers:{
             "Content-Type":"application/json"
@@ -105,25 +105,25 @@ const postComment = (ListItem)=>{
 commentBar();
 
 const slideshowData = ()=>{
-    fetch('https://raw.githubusercontent.com/anthonykimani/Quick-Shopping-Store/master/Assets/json/db.json/images')
+    fetch('https://raw.githubusercontent.com/anthonykimani/Quick-Shopping-Store/master/db.json')
     .then((response)=>response.json())
     .then((data)=>slideshow(data))
 }
 
 const slideshow = (info)=>{
     let i = 0;
-        galleryImage.setAttribute('src',`${info[0].image}`);
-        title.textContent = `${info[0].title}`
-        subtitle.textContent = `${info[0].subtitle}`;
+        galleryImage.setAttribute('src',`${info.images.images[0].image}`);
+        title.textContent = `${info.images.images[0].title}`
+        subtitle.textContent = `${info.images.images[0].subtitle}`;
         left.addEventListener('click',(event)=>{
             console.log(i);
             if(i<1){
                 i = 3;
             }
             i--;
-            galleryImage.setAttribute('src',`${info[i].image}`);
-            title.textContent = `${info[i].title}`
-            subtitle.textContent = `${info[i].subtitle}`;
+            galleryImage.setAttribute('src',`${info.images.images[i].image}`);
+            title.textContent = `${info.images.images[i].title}`
+            subtitle.textContent = `${info.images.images[i].subtitle}`;
         });
         right.addEventListener('click',(event)=>{
             console.log(i);
@@ -131,9 +131,9 @@ const slideshow = (info)=>{
                 i = -1;
             }
             i++
-            galleryImage.setAttribute('src',`${info[i].image}`);
-            title.textContent = `${info[i].title}`
-            subtitle.textContent = `${info[i].subtitle}`;
+            galleryImage.setAttribute('src',`${info.images.images[i].image}`);
+            title.textContent = `${info.images.images[i].title}`
+            subtitle.textContent = `${info.images.images[i].subtitle}`;
         })
 }
 
