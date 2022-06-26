@@ -20,6 +20,7 @@ const cartList = document.querySelector('.cart-list');
 const List = document.querySelector('.list');
 const url = 'https://fakestoreapi.com/products';
 
+//FETCH THE PRODUCTS 
 const fetchProducts = ()=>{
     fetch(url,{
         method:'GET',
@@ -33,6 +34,7 @@ const fetchProducts = ()=>{
 }
 fetchProducts();
 
+//DISPLAYS THE PRODUCTS TO THE DOM
 const showProducts = (info)=>{
     info.forEach((element,index)=>{
         const div = document.createElement('div');
@@ -61,6 +63,8 @@ const showProducts = (info)=>{
     })
 }
 
+
+//ADDS A COMMENT BAR FUNCTIONALITY
 const commentBar = ()=>{
     fetch('https://raw.githubusercontent.com/anthonykimani/Quick-Shopping-Store/master/db.json')
     .then((response)=>response.json())
@@ -89,6 +93,8 @@ const commentBar = ()=>{
     })
 }
 
+
+//REMOVES THE COMMENTS
 const removeComment = (ListItem,id)=>{
     ListItem.addEventListener('click',(event)=>{
         ListItem.remove();
@@ -104,6 +110,7 @@ const removeComment = (ListItem,id)=>{
     })
 }
 
+//ALLOWS ADDING COMMENTS TO THE DOM 
 const postComment = (ListItem)=>{
     fetch('https://raw.githubusercontent.com/anthonykimani/Quick-Shopping-Store/master/db.json',{
         method:"POST",
@@ -118,12 +125,15 @@ const postComment = (ListItem)=>{
 
 commentBar();
 
+//FETCHES IMAGES AND TEXT FOR SLIDESHOW
 const slideshowData = ()=>{
     fetch('https://raw.githubusercontent.com/anthonykimani/Quick-Shopping-Store/master/db.json')
     .then((response)=>response.json())
     .then((data)=>slideshow(data))
 }
 
+
+//DISPLAYS IMAGES AND TEXT TO THE DOM
 const slideshow = (info)=>{
     let i = 0;
     galleryImage.setAttribute('src',`${info.images[0].image}`);
@@ -153,6 +163,8 @@ const slideshow = (info)=>{
 
 slideshowData();
 
+
+//INITIATES THE LIKE FUNCTIONALITY
 const likeHandler = ()=>{
     let i = 0;
     like.addEventListener('click',(event)=>{
@@ -168,6 +180,8 @@ const likeHandler = ()=>{
 
 likeHandler();
 
+
+//ADDS AN ADD TO CART FUNCTIONALITY
 const cartHandler = ()=>{
     const cartButton = document.querySelectorAll('.icon');
     console.log(cartButton);

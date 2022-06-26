@@ -10,6 +10,8 @@ body{
 .container{
 }
 
+/* NAVIGATION SECTION */
+
 .navigation-container{
     background-color:#1b4332;
     width:100vw;
@@ -76,6 +78,8 @@ body{
 .user-container > ul{
     display:grid;
 }
+
+/* SLIDESHOW SECTION */
 
 .slide-container{
     margin-top:100px;
@@ -182,6 +186,8 @@ body{
     padding:0px 2px;
     font-weight:200;
 }
+
+/* HOME-SECTION */
 
 
 .home-container{
@@ -452,6 +458,8 @@ hr{
     font-size:50px;
 }
 
+
+/* COMMENT-SECTION */
 .about-section-container{
     display:grid;
     grid-template-columns:4fr 1fr;
